@@ -1,9 +1,9 @@
 #ClodeBlocks
-.cbp
-.depend
-.layout
-obj
-bin
+*.cbp
+*.depend
+*.layout
+/obj
+/bin
 # Compiled Object files
 *.slo
 *.lo
