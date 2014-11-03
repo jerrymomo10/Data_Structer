@@ -1,5 +1,6 @@
 #ifndef _Rank_cc_
 #define _Rank_cc_
+#include <iostream>
 #define Left(a) (((a)<<1)+1)
 #define Right(a) (((a)<<1)+2)
 void SelectSort(int* l,int n)
@@ -95,11 +96,11 @@ void adjustheap(int* arr,const int len,const int pos)
     int largest=pos;
     int left=Left(pos);
     int right=Right(pos);
-    if(left<=len&&arr[left]>arr[pos])
+    if(left<len&&arr[left]>arr[pos])
     {
         largest=left;
     }
-    if(right<=len&&arr[right]>arr[pos])
+    if(right<len&&arr[right]>arr[largest])
     {
         largest=right;
     }
@@ -115,7 +116,7 @@ void adjustheap(int* arr,const int len,const int pos)
 void buildheap(int *arr,int n)
 {
     if(!arr||n<0)return;
-    int pos=(n-1)/2;
+    int pos=(n-1)/2-1;
     for(;pos>=0;pos--)
     {
         adjustheap(arr,n,pos);
@@ -126,14 +127,18 @@ void heapsort(int* arr,int n)
 {
     if(!arr||n<0)return;
     int temp;
-    int i=0;
     buildheap(arr,n);
-    for(;i<n;i++)
+    for(int i=0;i<n;i++)
     {
         temp=arr[0];
         arr[0]=arr[n-i-1];
         arr[n-i-1]=arr[0];
         adjustheap(arr,n-i-1,0);
+          for(int i=0;i<(int)(sizeof(arr)/sizeof(int));i++)
+    {
+        std::cout<<arr[i]<<'\t';
+    }
+    std::cout<<endl;
     }
 }
 #endif
