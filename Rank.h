@@ -15,4 +15,18 @@ void SelectSort(int* l,int n)
         l[min]=temp;
     }
 }
+void BubSrot(int* l,int n)
+{
+   int temp;
+   for(int i=n-1;i>0;i--)
+   {
+	for(int j=0;j<i;j++)
+	{
+	   if(l[j]>l[j+1])
+	    temp=l[j];
+	    l[j]=l[j+1];
+	    l[j+1]=temp;
+	}
+   }
+}
 #endif
